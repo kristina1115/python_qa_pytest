@@ -40,13 +40,18 @@ def test_check_elements_books_page(browser):
     print(elements_filter)
 
 def test_add_product_to_shopping_cart(browser):
+    # Переход на страницу Books
     ProductsPage(browser).open('https://demowebshop.tricentis.com')
     MainPage(browser).click_categories_books()
+    # Название товара (первый в каталоге)
     link_product = ProductsPage(browser).check_link_product(0)
+    # Добавить товар в корзину (первый товар в списке)
     ProductsPage(browser).click_button_add_to_cart(0)
     time.sleep(5)
+    # Зайти в корзину
     MainPage(browser).click_shopping_cart()
     time.sleep(3)
+    # Проверка, что товар добавлен в корзину
     link_product_shopping_cart = CartPage(browser).check_link_product_shopping_cart()
     assert link_product == link_product_shopping_cart
     print(link_product)
