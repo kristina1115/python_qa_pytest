@@ -11,5 +11,4 @@ class MainPage(BasePage):
         browser.find_elements(*Main.menu_leftside.categories_books)[0].click()
 
     def click_shopping_cart(self):
-        browser = self.driver
-        browser.find_element(*Main.header_links.link_shopping_cart).click()
+        self._click(Main.header_links.link_shopping_cart)

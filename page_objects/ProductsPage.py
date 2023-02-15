@@ -74,8 +74,7 @@ class ProductsPage(BasePage):
         return product_name
 
     def click_link_product_shopping_cart(self):
-        browser = self.driver
-        browser._click(Cart.product_link)
+        self._click(Cart.product_link)
 
     def check_link_product_shopping_cart(self):
         browser = self.driver
