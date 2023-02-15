@@ -57,12 +57,8 @@ def test_add_product_to_shopping_cart(browser):
     print(link_product)
 
 
-def test_click_link_product_shopping_cart(browser):
+def test_check_full_product_cart(browser):
     ProductsPage(browser).open('https://demowebshop.tricentis.com')
     MainPage(browser).click_categories_books()
-    ProductsPage(browser).click_button_add_to_cart()
-    time.sleep(3)
-    MainPage(browser).click_shopping_cart()
-    time.sleep(3)
-    CartPage(browser).click_link_product_shopping_cart()
+    ProductsPage(browser).click_link_product(0)
     time.sleep(3)

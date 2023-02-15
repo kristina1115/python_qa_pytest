@@ -62,9 +62,10 @@ class ProductsPage(BasePage):
         browser = self.driver
         browser.find_elements(*Products.product_card.button_add_to_card)[index].click()
 
-    def click_link_product(self):
+    def click_link_product(self, index):
         browser = self.driver
-        browser.find_elements(*Products.product_card.product_link)[1].click()
+        product_from_list = browser.find_elements(*Products.product_card.product)[index]
+        product_from_list.find_elements(*Products.product_card.product_link)[1].click()
 
     def check_link_product(self, index):
         browser = self.driver
