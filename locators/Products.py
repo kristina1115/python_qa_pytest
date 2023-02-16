@@ -16,6 +16,6 @@ class Products:
         button_add_to_card = (By.CSS_SELECTOR, "[value = 'Add to cart']")
         products_list = (By.CSS_SELECTOR, 'div.product-grid')
         product = (By.CSS_SELECTOR, products_list[1] + '> div.item-box')
-        product_link = (By.CSS_SELECTOR, product[1] + ' ' + 'a')
+        product_link = (By.CSS_SELECTOR, product[1] + ' ' + 'h2 > a')
 
 

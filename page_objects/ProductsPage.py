@@ -8,11 +8,11 @@ class ProductsPage(BasePage):
         self.driver.get(url)
 
     def search_elements_title(self):
-        title = self._element(Products.products_books.page_title).text
+        title = self._get_element_text(Products.products_books.page_title)
         return title
 
     def search_elements_sorting(self):
-        sorting = self._element(Products.products_books.page_sorting).text
+        sorting = self._get_element_text(Products.products_books.page_sorting)
         return sorting
 
     def search_elements_sorting_select(self):
@@ -22,8 +22,8 @@ class ProductsPage(BasePage):
 
 
     def search_elements_display(self):
-        display_per_page = self._element(Products.products_books.page_display, 0).text
-        display_per_page_two = self._element(Products.products_books.page_display, 1).text
+        display_per_page = self._get_element_text(Products.products_books.page_display, 0)
+        display_per_page_two = self._get_element_text(Products.products_books.page_display, 1)
         return display_per_page + " " + display_per_page_two
 
     def search_elements_display_select(self):
@@ -32,7 +32,7 @@ class ProductsPage(BasePage):
         return list_display
 
     def search_elements_view(self):
-        view = self._element(Products.products_books.page_view).text
+        view = self._get_element_text(Products.products_books.page_view)
         return view
 
     def search_elements_view_select(self):
@@ -41,7 +41,7 @@ class ProductsPage(BasePage):
         return list_view
 
     def search_elements_filter(self):
-        filter = self._element(Products.products_books.page_filter).text
+        filter = self._get_element_text(Products.products_books.page_filter)
         return filter
 
     def search_elements_filter_select(self):
@@ -57,15 +57,17 @@ class ProductsPage(BasePage):
         product_from_list._click(Products.product_card.product_link, 1)
 
     def check_link_product(self, index):
-        product_from_list = self._element(Products.product_card.product, index)
-        product_name = product_from_list.find_elements(*Products.product_card.product_link)[1].text
+        #driver = self.driver
+        product = self._element(Products.product_card.product, index)
+        product_name = product.find_element(*Products.product_card.product_link).text # ?
         return product_name
 
     def click_link_product_shopping_cart(self):
         self._click(Cart.product_link)
 
     def check_link_product_shopping_cart(self):
-        self._element(Cart.product_link).text
+        product_link = self._get_element_text(Cart.product_link)
+        return product_link
 
 
 

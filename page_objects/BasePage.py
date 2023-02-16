@@ -20,3 +20,6 @@ class BasePage:
         element = self._element(selector, index)
         element.clear()
         element.send_keys(value)
+
+    def _get_element_text(self, selector, index=0):
+        return self._element(selector, index).text

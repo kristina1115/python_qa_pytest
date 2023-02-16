@@ -45,6 +45,7 @@ def test_add_product_to_shopping_cart(browser):
     MainPage(browser).click_categories_books()
     # Название товара (первый в каталоге)
     link_product = ProductsPage(browser).check_link_product(0)
+    print(link_product)
     # Добавить товар в корзину (первый товар в списке)
     ProductsPage(browser).click_button_add_to_cart(0)
     time.sleep(5)
@@ -53,12 +54,12 @@ def test_add_product_to_shopping_cart(browser):
     time.sleep(3)
     # Проверка, что товар добавлен в корзину
     link_product_shopping_cart = CartPage(browser).check_link_product_shopping_cart()
+    print(link_product_shopping_cart)
     assert link_product == link_product_shopping_cart
-    print(link_product)
 
 
 def test_check_full_product_cart(browser):
     ProductsPage(browser).open('https://demowebshop.tricentis.com')
     MainPage(browser).click_categories_books()
-    ProductsPage(browser).click_link_product(0)
-    time.sleep(3)
+    link_product = ProductsPage(browser).check_link_product(0)
+    print(link_product)
