@@ -44,7 +44,8 @@ def test_add_product_to_shopping_cart(browser):
     ProductsPage(browser).open('https://demowebshop.tricentis.com')
     MainPage(browser).click_categories_books()
     # Название товара (первый в каталоге)
-    link_product = ProductsPage(browser).check_link_product(0)
+    #product = ProductsPage(browser).get_product(0)
+    link_product = ProductsPage(browser).get_product_link(0)
     print(link_product)
     # Добавить товар в корзину (первый товар в списке)
     ProductsPage(browser).click_button_add_to_cart(0)
@@ -61,5 +62,5 @@ def test_add_product_to_shopping_cart(browser):
 def test_check_full_product_cart(browser):
     ProductsPage(browser).open('https://demowebshop.tricentis.com')
     MainPage(browser).click_categories_books()
-    link_product = ProductsPage(browser).check_link_product(0)
-    print(link_product)
+    ProductsPage(browser).click_product_link(2)
+    time.sleep(5)

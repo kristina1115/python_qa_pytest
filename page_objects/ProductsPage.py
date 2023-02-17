@@ -52,15 +52,11 @@ class ProductsPage(BasePage):
     def click_button_add_to_cart(self, index):
         self._click(Products.product_card.button_add_to_card, index)
 
-    def click_link_product(self, index):
-        product_from_list = self._element(Products.product_card.product, index)
-        product_from_list._click(Products.product_card.product_link, 1)
+    def get_product_link(self, index):
+        return self._get_element_text(Products.product_card.product_link, index)
 
-    def check_link_product(self, index):
-        #driver = self.driver
-        product = self._element(Products.product_card.product, index)
-        product_name = product.find_element(*Products.product_card.product_link).text # ?
-        return product_name
+    def click_product_link(self, index):
+        self._click(Products.product_card.product_link, index)
 
     def click_link_product_shopping_cart(self):
         self._click(Cart.product_link)
