@@ -6,3 +6,8 @@ class Main:
 
     class header_links:
         link_shopping_cart = (By.CSS_SELECTOR, '#topcartlink > a')
+
+    class notification:
+        notification_bar = (By.ID, 'bar-notification')
+        notification_bar_text = (By.CSS_SELECTOR, 'p.content')
+        notification_bar_link = (By.CSS_SELECTOR, notification_bar_text[1] + ' > a')

@@ -1,4 +1,5 @@
 from page_objects.CommonPage import CommonPage
+
 import time
 
 def test_login(browser):
