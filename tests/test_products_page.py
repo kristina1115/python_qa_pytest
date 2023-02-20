@@ -48,9 +48,7 @@ def test_add_product_to_shopping_cart(browser):
     # Добавить товар в корзину (первый товар в списке)
     ProductsPage(browser).click_button_add_to_cart(0)
     # Проверка уведомления
-    MainPage(browser).notification_display()
-    message = MainPage(browser).verify_message()
-    assert message == 'The product has been added to your shopping cart'
+    MainPage(browser).verify_message('The product has been added to your shopping cart')
     # Зайти в корзину
     MainPage(browser).click_shopping_cart()
     # Проверка, что товар добавлен в корзину
