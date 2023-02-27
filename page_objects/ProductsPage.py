@@ -49,7 +49,7 @@ class ProductsPage(BasePage):
         list_filter = [i.text for i in filter_select if len(i.text) > 0]
         return list_filter
 
-    def click_button_add_to_cart(self, index):
+    def click_button_add_to_cart(self, index = 0):
         self._click(Products.product_card.button_add_to_card, index)
 
     def get_product_link(self, index):
@@ -64,6 +64,10 @@ class ProductsPage(BasePage):
     def check_link_product_shopping_cart(self):
         product_link = self._get_element_text(Cart.product_link)
         return product_link
+
+    def input_quantity_product(self, quantity):
+        self._input(Products.product_card.input_quantity, quantity)
+
 
 
 

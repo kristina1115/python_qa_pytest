@@ -18,6 +18,10 @@ class MainPage(BasePage):
     def verify_message(self, text):
         return WebDriverWait(self.driver, 2).until(EC.text_to_be_present_in_element(Main.notification.notification_bar, text))
 
+    def verify_message_text(self):
+        WebDriverWait(self.driver, 2).until(EC.visibility_of_element_located(Main.notification.notification_bar_text))
+        return self._get_element_text(Main.notification.notification_bar_text)
+
 
 
 

@@ -17,5 +17,6 @@ class Products:
         products_list = (By.CSS_SELECTOR, 'div.product-grid')
         product = (By.CSS_SELECTOR, products_list[1] + '> div.item-box')
         product_link = (By.CSS_SELECTOR, product[1] + ' ' + 'h2 > a')
+        input_quantity = (By.ID, 'addtocart_13_EnteredQuantity')
 
 
