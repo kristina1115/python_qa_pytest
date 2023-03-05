@@ -36,7 +36,7 @@ def test_check_elements_books_page(browser):
     assert filter_by_price == "Filter by price"
     elements_filter = ProductsPage(browser).search_elements_filter_select()
     assert "Under 25.00" and "25.00 - 50.00" and "Over 50.00" in elements_filter
-    print(elements_filter)
+
 
 def test_check_full_product_cart(browser):
     ProductsPage(browser).open('https://demowebshop.tricentis.com')
